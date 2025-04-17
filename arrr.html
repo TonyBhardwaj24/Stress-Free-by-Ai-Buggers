@@ -1,0 +1,2055 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STRESS-FREE</title>
+  <link rel="icon" href="/images/favicon-enhanced.png">
+  <link rel="stylesheet" text="text/CSS"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap");
+    @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
+    @import url("https://fonts.googleapis.com/css?family=Raleway:400,800");
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+      box-sizing: border-box;
+    }
+
+    ::-webkit-scrollbar{
+      background: transparent;
+      width: 0.4rem;
+    }
+
+    ::-webkit-scrollbar-thumb{
+      background-color: rgba(173, 173, 173, 0.2);
+      border-radius: 10px;
+      transition: background-color 0.5s ease-in-out;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: rgba(173, 173, 173, 0.5);
+    }
+
+    html{
+      overflow-y: overlay;
+      scroll-behavior: smooth;
+    }
+
+    .loading-wrapper{
+      background-color: white;
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      z-index: 250;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #loading {
+      z-index: 251;
+      width: 20rem;
+      -webkit-animation: spin 2s linear infinite;
+      animation: spin 2s linear infinite;
+    }
+
+    @-webkit-keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+      }
+
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+
+    body {
+      font-family: "Poppins";
+      transform: none;
+      overflow: hidden;
+    }
+
+    .nav {
+      display: flex;
+      padding: 0.5% 4%;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 5;
+      transition: 0.3s ease-in-out;
+    }
+
+    .nav-active {
+      background-color: #000000ad;
+      backdrop-filter: blur(5px);
+      box-shadow: 5px -1px 12px -5px grey;
+    }
+
+    header {
+      width: 100%;
+      background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),
+        url("https://images.stockcake.com/public/a/1/5/a15ed4cd-7f26-4ed5-b7b9-3e96867ecab0_large/sunrise-mountain-embrace-stockcake.jpg");
+      background-position: center;
+      background-size: cover;
+      position: relative;
+      min-height: 100vh;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo {
+            width: 100px; /* Adjust as needed */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 50%; /* Makes it circular if desired */
+            transition: transform 0.3s ease; /* Smooth hover effect */
+        }
+        
+    .logo:hover {
+            transform: scale(1.1); /* Slight zoom on hover */
+        }
+
+    .hamburger {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 3px;
+      cursor: pointer;
+      z-index: 50;
+      color: white;
+    }
+
+    .cancel {
+      display: none;
+    }
+
+
+    .hamburger:hover {
+      color: rgb(200, 200, 200)
+    }
+
+    .links li {
+      list-style: none;
+      display: inline-block;
+      padding: 8px 12px;
+      position: relative;
+    }
+
+    .links a {
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+    }
+
+    .links li::after {
+      content: "";
+      width: 0%;
+      height: 3px;
+      background: rgb(122, 178, 231);
+      display: block;
+      margin: auto;
+      transition: 0.5s ease-in-out;
+    }
+
+    .links li:hover::after {
+      width: 100%;
+    }
+
+    .login-button {
+      border: none;
+      cursor: pointer;
+      background-color: #0da1dc;
+      box-shadow: inset 0 0 0 0 #ea097f;
+      border-radius: 4px;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      -ms-border-radius: 4px;
+      -o-border-radius: 4px;
+      transition: ease-out 0.4s;
+      -webkit-transition: ease-out 0.4s;
+      -moz-transition: ease-out 0.4s;
+      -ms-transition: ease-out 0.4s;
+      -o-transition: ease-out 0.4s;
+    }
+
+    .login-button a {
+      display: block;
+      text-decoration: none;
+      font-family: "Poppins", sans-serif;
+      font-weight: 400;
+      color: #fff;
+      height: 2.4rem;
+      width: 7.9rem;
+      letter-spacing: 1px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-button a:hover {
+      color: #ffffff;
+    }
+
+    .login-button:hover {
+      box-shadow: inset 130px 0 0 0 #ea097f;
+    }
+
+    .menu {
+      display: none;
+      width: 100%;
+      position: absolute;
+      background-color: #fff;
+      top: 85px;
+      right: 0;
+      padding: 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+    }
+
+    .open {
+      display: block;
+      width: 70%;
+      height: 100%;
+      position: fixed;
+      background-color: rgb(56, 56, 55);
+      top: 0;
+      right: 0;
+      padding: 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+      animation: slideIn 0.5s ease-in-out;
+      z-index: 2;
+    }
+
+    @keyframes slideIn {
+      0% {
+        right: -150px;
+      }
+
+      100% {
+        right: 0px;
+      }
+    }
+
+    .menu-link {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .menu-link li {
+      padding: 2rem;
+      font-weight: bolder;
+    }
+
+    .menu-link li:last-child {
+      padding-bottom: 0;
+    }
+
+    .menu-link li a {
+      color: rgb(247, 245, 245);
+      font-weight: bolder;
+      font-size: 1.15rem;
+      text-decoration: none;
+      transition: color 0.2s ease-in-out;
+    }
+
+    .menu-link li a:hover {
+      z-index: 150;
+      color: rgb(30, 240, 191);
+    }
+
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      color: #fff;
+      margin: auto;
+      text-align: center;
+    }
+
+    .content h1 {
+      font-family: "Lucida Sans";
+      font-weight: 199px;
+      font-size: 4rem;
+      line-height: 4.563rem;
+      text-align: center;
+      color: #ffffff;
+      -webkit-text-stroke-width: 5px;
+      -webkit-text-stroke-color: black;
+      background-color: #ffffff;
+      background-image: linear-gradient(45deg,
+          #fff 15.666%,
+          #0da1dc 16.333%,
+          #981a8e 33.333%,
+          #ea097f 50%,
+          #e12038 66.666%,
+          #f06f25 83.333%);
+      background-size: 100%;
+      background-repeat: repeat;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbow-text-simple-animation-rev 0.75s ease forwards;
+    }
+
+    .content h1:hover {
+      animation: rainbow-text-simple-animation 0.5s ease-in forwards;
+    }
+
+    @keyframes rainbow-text-simple-animation-rev {
+      0% {
+        background-size: 650%;
+      }
+
+      40% {
+        background-size: 650%;
+      }
+
+      100% {
+        background-size: 100%;
+      }
+    }
+
+    @keyframes rainbow-text-simple-animation {
+      0% {
+        background-size: 100%;
+      }
+
+      80% {
+        background-size: 650%;
+      }
+
+      100% {
+        background-size: 650%;
+      }
+    }
+
+    .content h3 {
+      margin-top: 1rem;
+      color: rgb(163, 158, 158);
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 29px;
+      text-align: center;
+      color: rgb(180, 217, 240);
+      text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+    }
+
+    .content .rainbow-button {
+      cursor: pointer;
+      display: inline-block;
+      margin: auto;
+      margin-top: 3rem;
+      font-size: 1.2rem;
+      text-decoration: none;
+      color: #fff;
+      width: calc(8rem + 6px);
+      height: calc(3rem + 6px);
+      background-image: linear-gradient(90deg,
+          #0da1dc 0%,
+          #981a8e 29%,
+          #ea097f 60%,
+          #e12038 80%,
+          #f06f25 100%);
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    .content .rainbow-button:after {
+      content: attr(alt);
+      width: 8rem;
+      height: 3rem;
+      background-color: #191919;
+      opacity: 0.9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .content .rainbow-button:hover {
+      animation: slidebg 1s linear infinite;
+    }
+
+    @keyframes slidebg {
+      to {
+        background-position: 8rem;
+      }
+    }
+
+    .hero-btn {
+      display: inline-block;
+      text-decoration: none;
+      color: #fff;
+      border: 1px solid #fff;
+      padding: 12px 34px;
+      font-size: 20px;
+      background: transparent;
+      border-radius: 50px;
+      cursor: pointer;
+    }
+
+    .hero-btn:hover {
+      border: #060694;
+      background: #060694;
+      transition: 0.4s;
+    }
+
+    nav .fa {
+      display: none;
+    }
+
+    /* ABOUT SECTION */
+    #about {
+      background-color: rgb(13, 50, 64);
+      width: 100%;
+      padding: 5px 0px;
+      padding-top: 70px;
+      padding-bottom: 100px;
+    }
+
+    #about h1 {
+      color: white;
+      font-size: 50px;
+      margin: 20px 20px;
+      font-weight: 800;
+      text-align: center;
+      font-family: "Montserrat";
+    }
+
+    #about h3 {
+      color: white;
+      display: flex;
+      font-size: 35px;
+      justify-content: center;
+      margin-bottom: 2rem;
+      margin-top: 9rem;
+      font-family: "Roboto";
+      font-weight: 600;
+    }
+
+    .about .max-width {
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .about .photo {
+      border: 5px solid #f9004d;
+      border-radius: 10px;
+      order: 2;
+    }
+
+    @media (max-width: 1050px) {
+      .about-content{
+        order: 3;
+      }
+
+      .about .photo{
+        margin-bottom: 2rem;
+      }
+    }
+
+    .about-content p{
+      max-width: 700px;
+      padding: 0 1.5em;
+      font-size: 27px;
+      font-family: "Montserrat";
+      margin-left: 1em;
+      margin-right: 1em;
+    }
+
+    .text-3{
+      margin-top: 2rem;
+    }
+
+    .about .about-content span,
+    .about .about-content span,
+    .about .about-content span {
+      color: #f9004d;
+      font-weight: 700;
+    }
+
+    .box {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      padding: 2.5rem;
+    }
+    @media screen and (max-width: 1336px) and (min-width: 600px)
+    {
+      .box {
+      gap: 1rem;
+      padding: 2.5rem;
+      justify-items: center;
+    }
+
+    }
+
+    .card {
+      cursor: pointer;
+      text-align: center;
+      animation: slideIn 0.5s ease-in-out;
+      transform: translateY(-2.2rem);
+      padding: 20px;
+      width: 300px;
+      transition: all 0.25s;
+      background: rgba(1, 59, 112, 0.4);
+      box-shadow: 0 8px 32px 0 rgba(23, 25, 50, 0.37);
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+      border-radius: 10px;
+      border: 1px solid rgba(245, 245, 245, 0.145);
+    }
+
+    .card:hover {
+      box-shadow: 0px 5px 25px 0 rgba(0, 0, 0, 0.642);
+      margin-top: -2%;
+      margin-bottom: 2%;
+    }
+
+    .card img {
+      height: 200px;
+      width: 200px;
+      border-radius: 50%;
+    }
+
+    .card img:hover {
+      outline: 0px solid transparent;
+      padding: 3px 3px;
+      border: 2px solid red;
+      -webkit-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+    }
+
+    h5 {
+      color: white;
+      font-size: 23px;
+      margin-bottom: 15px;
+    }
+
+    .pra p {
+      color: #fcfc;
+      font-size: 16px;
+      line-height: 27px;
+      margin-bottom: 25px;
+    }
+
+    .pra button {
+      padding: 0.5rem 1.0rem;
+      border: 2px solid #f9004d;
+      background-color: #fff;
+      border-radius: 0.8rem;
+      color: #f9004d;
+      font-family: "Poppins", sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+    margin-bottom: 1rem;
+    }
+    .p{
+      margin-top: -24px;
+    }
+    .pra button:hover {
+      background-color: #f9004d;
+      color: #fff;
+      transition: 0.3s;
+    }
+    .footerpara {
+      white-space: nowrap;
+    }
+    .he{
+      margin-top: -30%;
+    }
+
+    /* SERVICES SECTION */
+    #services {
+      background-color: #092e3c;
+      padding-top: 60px;
+      width: 100%;
+    }
+
+    #services h1 {
+      font-size: 50px;
+      text-align: center;
+      font-weight: 800;
+      font-family: "Montserrat";
+      padding-top: 2rem;
+      font-weight: bolder;
+      color: white;
+    }
+/* Update the container styles */
+.container {
+  padding: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+    /* Update the responsive card styles */
+    .responsive {
+  color: whitesmoke;
+  width: calc(33.33% - 2rem); /* 3 items per row with gap */
+  min-width: 300px;
+  border: 1px solid rgba(245, 245, 245, 0.146);
+  border-radius: 1.5rem;
+  text-align: center;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 28px;
+  box-sizing: border-box;
+}
+
+    .round-image img {
+      width: 12rem;
+      height: 12rem;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto;
+    }
+
+    .responsive .round-image img {
+      width: 12rem;
+      border-radius: 50%;
+    }
+
+    .responsive h2 {
+      margin-top: 1.2rem;
+    }
+
+    .responsive p {
+      width: 70%;
+      word-wrap: break-word;
+      margin: 1rem auto;
+    }
+
+    .responsive a {
+      display: inline-block;
+      width: 100%;
+      text-decoration: none;
+      color: black;
+      background-color: rgb(255, 255, 255);
+      border: 1px solid black;
+      padding: 0.5em;
+      border-radius: 0.5em;
+      transition: 0.3s ease-in-out;
+    }
+
+    .responsive a:hover {
+      font-weight: bolder;
+      background-color: #02142d;
+      color: white;
+      border-color: white;
+    }
+
+    .description {
+      min-height: 55%;
+      padding-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-grow: 1;
+    }
+
+    @media screen and (max-width: 900px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .responsive {
+        width: 100%;
+      }
+    }
+
+    /* Testimonials Section */
+    .testimonials_heading {
+      padding: 20px 0px;
+      text-align: center;
+      font-weight: bolder;
+      color: rgb(253, 253, 253);
+      width: 100%;
+    }
+
+    .testimonials_heading h1 {
+      font-size: 50px;
+      font-weight: 800;
+      padding-bottom: 3rem;
+      font-family: "Montserrat";
+    }
+
+    figure.testimonal-Card {
+      font-family: "Raleway", Arial, sans-serif;
+      position: relative;
+      overflow: hidden;
+      margin: 0 auto;
+      min-width: 220px;
+      max-width: 310px;
+      width: 100%;
+      color: #333;
+      text-align: left;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+      border-radius: 8px;
+    }
+
+    figure.testimonal-Card * {
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      -webkit-transition: all 0.35s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+      transition: all 0.35s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+    }
+
+    figure.testimonal-Card img {
+      max-width: 100%;
+      vertical-align: middle;
+    }
+
+    figure.testimonal-Card blockquote {
+      position: relative;
+      background-color: #ffffff;
+      padding: 25px 50px;
+      font-size: 0.8em;
+      font-weight: 500;
+      text-align: left;
+      margin: 0;
+      line-height: 1.6em;
+      font-style: italic;
+    }
+
+    figure.testimonal-Card blockquote:before,
+    figure.testimonal-Card blockquote:after {
+      font-family: "FontAwesome";
+      content: "\201C";
+      position: absolute;
+      font-size: 50px;
+      opacity: 0.3;
+      font-style: normal;
+    }
+
+    figure.testimonal-Card blockquote:before {
+      top: 25px;
+      left: 20px;
+      color: #083653;
+    }
+
+    figure.testimonal-Card blockquote:after {
+      content: "\201D";
+      right: 20px;
+      bottom: 0;
+      color: #083653;
+    }
+
+    figure.testimonal-Card .arrow {
+      top: 100%;
+      width: 0;
+      height: 0;
+      border-left: 0 solid transparent;
+      border-right: 25px solid transparent;
+      border-top: 25px solid #ffffff;
+      margin: 0;
+      position: absolute;
+    }
+
+    figure.testimonal-Card .author {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 10px 25px;
+      color: #000000;
+      background-color: #ffffff;
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+    figure.testimonal-Card .author h5 {
+      opacity: 0.8;
+      color: #000000;
+      text-align: center;
+      margin: 0;
+      font-weight: 600;
+      color: #083653;
+    }
+
+    .section-100 {
+      padding: 50px;
+      background-color: rgb(13 50 64);
+    }
+
+    .testimonial-view {
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .testimonial-view .owl-item.active.center .testimonial-box {
+      transform: scale(1.15);
+      opacity: 1;
+    }
+
+    .testimonial-box {
+      padding: 30px 20px;
+      margin: 50px 15px 90px 15px;
+      border-radius: 5px;
+      box-shadow: 0 15px 50px -3px rgba(0, 0, 0, 0.1);
+      transform: scale(0.9);
+      opacity: 0.5;
+      transition: all 0.3s;
+    }
+
+    .testimonial-box .quote-icon {
+      font-size: 50px;
+      color: #083653;
+        margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .testimonial-box img.user-img {
+      height: 60px;
+      width: 60px;
+      border: 3px solid #083653 ;
+      border-radius: 60px;
+      object-fit: cover;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16);
+    }
+
+    .owl-nav .owl-prev {
+      position: absolute;
+      top: calc(50% - 25px);
+      left: 0;
+      opacity: 0.7;
+      font-size: 30px !important;
+      z-index: 1;
+    }
+
+    .owl-nav .owl-next {
+      position: absolute;
+      top: calc(50% - 25px);
+      right: 0;
+      opacity: 0.7;
+      font-size: 30px !important;
+      z-index: 1;
+    }
+
+    .owl-dots {
+      text-align: center;
+    }
+
+    .owl-dots .owl-dot {
+      height: 8px;
+      width: 8px;
+      border-radius: 8px;
+      background: #ccc !important;
+      margin-left: 5px;
+      margin-right: 5px;
+      outline: none;
+    }
+
+    .owl-dots .owl-dot.active {
+      background: #999 !important;
+    }
+
+    .owl-carousel .owl-nav button.owl-next,
+    .owl-carousel .owl-nav button.owl-prev,
+    .owl-carousel button.owl-dot {
+      background: 0 0;
+      color: #fff !important;
+      border: none;
+      padding: 0 !important;
+      font: inherit;
+    }
+    .owl-carousel .owl-nav button.owl-next:hover,
+    .owl-carousel .owl-nav button.owl-prev:hover,
+    .owl-carousel button.owl-dot:hover{
+      color: #f9004d !important;
+    }
+
+    /* faq section */
+    .faq {
+      background-color: rgb(0, 39, 55);
+      padding-bottom: 20px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      min-height: 100vh;
+    }
+
+    .faq_heading {
+      padding-top: 40px;
+      text-align: center;
+      font-weight: bolder;
+      color: white;
+      width: 100%;
+    }
+
+    .faq_heading h1 {
+      font-size: 50px;
+      font-weight: 800;
+      padding-bottom: 2rem;
+      font-family: "Montserrat";
+    }
+
+    .accordion {
+      width: 42rem;
+      padding: 1.2rem 0;
+      border-radius: 1rem;
+      background: rgba(1, 59, 112, 0.4);;
+      margin-top: 2rem;
+    }
+
+    .accordion__heading {
+      margin-bottom: 1rem;
+      padding: 0 1.4rem;
+    }
+
+    .accordion__item:not(:last-child) {
+      border-bottom: 1px solid lightgrey;
+    }
+
+    .accordion__btn {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 1.2rem 1.4rem;
+      background: rgba(1, 59, 112, 0.4);
+      border: none;
+      outline: none;
+      color: white;
+      font-size: 1.2rem;
+      text-align: left;
+      cursor: pointer;
+      transition: 0.1s;
+      font-weight: 300;
+    }
+
+    .accordion__btn:hover {
+      color: #2868d0;
+      background: hsl(248, 53%, 97%);
+      font-weight: 700;
+    }
+
+    .accordion__item--active .accordion__btn {
+      color: #2868d0;
+      border-bottom: 2px solid #2868d0;
+      background: hsl(248, 53%, 97%);
+      font-weight: 700;
+    }
+
+    .fa-lightbulb {
+      padding-right: 1rem;
+    }
+
+
+    .audio-img {
+        width: 300px;
+        border-radius: 50%;
+        display: block;
+        margin: 20px auto;
+      }
+      
+
+    .accordion__icon {
+      border-radius: 50%;
+      transform: rotate(0deg);
+      transition: 0.3s ease-in-out;
+      opacity: 0.9;
+    }
+
+    .accordion__item--active .accordion__icon {
+      transform: rotate(45deg);
+    }
+
+    .accordion__content {
+      font-weight: 300;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      color: white;
+      transform: translateX(16px);
+      transition: max-height 0.5s ease, opacity 0.5s, transform 0.5s;
+    }
+    .accordion__content .email{
+      color:  #ffff00;
+    }
+    .accordion__content p {
+      padding: 1rem 1.8rem;
+    }
+
+    .accordion__item--active .accordion__content {
+      opacity: 1;
+      transform: translateX(0px);
+      max-height: 100vh;
+    }
+
+    .accordion__icon i {
+      transition: all 0.3s ease;
+    }
+
+
+    @media (max-width: 991px) {
+      .accordion {
+        width: 31rem;
+        left: 13rem;
+      }
+    }
+
+    @media (max-width: 547px) {
+      .accordion {
+        width: 24rem;
+      }
+    }
+
+    @media (max-width: 445px) {
+      .faq_heading {
+        width: 94%;
+      }
+
+      .faq_heading h1 {
+        font-size: 29px;
+      }
+
+      .accordion {
+        width: 16rem;
+      }
+
+      .accordion__btn {
+        font-size: 11px;
+      }
+    }
+
+    /* --- Icon --- */
+    .bmenu {
+      width: 26px;
+      height: 16px;
+      display: block;
+      position: absolute;
+      right: 15px;
+      top: 12px;
+    }
+
+    .btop,
+    .bmid,
+    .bbot {
+      right: 0;
+      width: 100%;
+      height: 2px;
+      position: absolute;
+      background-color: rgb(243, 230, 230);
+      border-radius: 1px;
+    }
+
+    .btop {
+      width: 40%;
+    }
+
+    .bmid {
+      width: 60%;
+    }
+
+    .bbot {
+      width: 80%;
+    }
+
+    .x7 {
+      transition: transform 0.3s ease-out;
+      transform-origin: 60% 75%;
+    }
+
+    .x7 .btop {
+      top: 0;
+      transition: width 0.3s, transform 0.3s, top 0s;
+      transition-timing-function: ease-out;
+    }
+
+    .x7 .bmid {
+      top: calc(50% - 1px);
+      transform-origin: 100% 50%;
+      transition: opacity 0.1s;
+      transition-timing-function: ease-out;
+    }
+
+    .x7 .bbot {
+      bottom: 0;
+      transition: width 0.3s, transform 0.3s, bottom 0s;
+      transition-timing-function: ease-out;
+    }
+
+    /* footer */
+    .footer-container {
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: nowrap;
+      background-color: rgb(6, 16, 37);
+    }
+
+    .footer-side-col {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      width: 80%;
+    }
+
+    .footer-side-col>.col {
+      padding: 2.5rem;
+      flex-wrap: nowrap;
+    }
+
+    .footer-container>.col {
+      padding: 2.5rem;
+      flex-basis: 20%;
+      color: white;
+    }
+
+    .footer-container .col a:hover,
+    footer a:focus {
+      color: cyan;
+    }
+
+    @media (max-width: 500px) {
+      .accordion__title {
+        font-size: 1.2em;
+        font-weight: 700;
+      }
+
+      .accordion__content {
+        font-size: 0.9em;
+      }
+    }
+
+    @media (max-width: 447px) {
+      .accordion__title {
+        font-size: 1em;
+      }
+
+      .accordion__content {
+        font-size: 0.8em;
+      }
+    }
+
+    @media (max-width: 393px) {
+      .accordion__title {
+        font-size: 0.8em;
+      }
+    }
+
+    @media (max-width: 1120px) {
+      .footer-side-col {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 730px) {
+      .footer-container {
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      .footer-container .col {
+        padding: 2rem;
+        flex-basis: 31%;
+      }
+
+      .footer-container p {
+        color: white;
+        margin-top: 1rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .footer-side-col {
+        grid-template-columns: 1fr;
+        grid-template-rows: minmax(auto, auto);
+      }
+
+      .footer-container .col {
+        padding: 1rem;
+        flex-basis: 100%;
+      }
+    }
+
+    .footer-container .col a {
+      display: inline-block;
+      position: relative;
+      color: white;
+    }
+
+    .footer-container .col ul li a:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: cyan;
+      transform-origin: bottom right;
+      transition: transform 0.25s ease-out;
+    }
+
+    .footer-container .col ul li a:hover:after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+
+    .footer-container p {
+      color: white;
+    }
+
+    .footer-container .col ul li a:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: cyan;
+      transform-origin: bottom right;
+      transition: transform 0.25s ease-out;
+    }
+
+    .footer-container .col ul li a:hover:after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+
+    .footer-container p {
+      margin-top: 0.5rem;
+    }
+
+    .footerpara {
+      margin-left: -10px;
+    }
+
+    .footer-container .col .email-id {
+      word-wrap: break-word;
+      text-decoration: underline;
+    }
+
+    .email-id a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .footer-container .col h3 {
+      color: rgb(228, 26, 77);
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      font-weight: 900;
+      font-family: "Ubuntu", sans-serif;
+    }
+
+    .footer-container .col img {
+      display: block;
+      margin: 0 auto;
+      width: 140px;
+      cursor: pointer;
+    }
+
+    .footer-container .col .footerheading {
+      display: flex;
+      color: white;
+      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .footer-container .col .footerpara {
+      display: flex;
+      margin-top: -3px;
+      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+      letter-spacing: 4px;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .fab:hover {
+      text-decoration: none;
+    }
+
+    .footer-container .col .STRESS-FREE {
+      color: rgb(30, 240, 191);
+      letter-spacing: 5px;
+    }
+
+    .footer-container .col .social-menu ul {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .footer-container .col .social-menu ul a {
+      color: white;
+    }
+
+
+    .footer-container .col ul li {
+      list-style-type: none;
+      text-align: left;
+      margin-top: 0.5rem;
+    }
+    .footer-container .col .social-menu ul a li{
+      transition: transform  250ms ease-out, color 250ms ease-out;
+    }
+
+
+    .footer-container .col .social-menu ul a li:hover {
+      transform: scale(1.4) !important;
+      text-decoration: none !important;
+    }
+    .footer-container .col .social-menu ul a li#social-twitter:hover{
+      color: 	#1DA1F2;
+    }
+    .footer-container .col .social-menu ul a li#social-github{
+      transition: transform  250ms ease-out, color 250ms ease-out, padding 250ms ease-out !important;
+    }
+    .footer-container .col .social-menu ul a li#social-github:hover{
+      transform: scale(1.2) !important;
+      color:black;
+      background-color: whitesmoke;
+      padding: 2px 2px 0px 2px;
+      border-radius: 25px;
+    }
+    .footer-container .col .social-menu ul a li#social-linkedin:hover{
+      color: #0A66C2;
+    }
+
+    .footer-container .col ul li a {
+      text-decoration: none;
+      color: white;
+    }
+
+    @media screen and (max-width: 600px) {
+      .container {
+        padding: 1rem;
+      }
+
+      .box {
+        place-items: center;
+        padding: 3rem 0px;
+      }
+
+      #about h2 {
+        text-align: center;
+        font-size: 30px;
+      }
+
+      #about h3 {
+        text-align: center;
+        font-size: 25px;
+      }
+
+      .card {
+        width: 350px;
+      }
+
+      .card img {
+        border-radius: 50%;
+      }
+
+      #services h2 {
+        text-align: center;
+      }
+
+      #services .responsive {
+        margin-top: 28px;
+      }
+
+      .footer-container .col ul li {
+        text-align: center;
+      }
+
+      .footer-container {
+        text-align: center;
+      }
+
+      .footer-container .col .social-menu ul {
+        justify-content: center;
+      }
+    }
+
+
+    @media screen and (max-width: 800px) {
+      .nav-links {
+        display: none;
+      }
+
+      .logo {
+        width: 60px;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .hamburger i {
+        z-index: 1000000000;
+        display: block;
+        font-size: 25px;
+      }
+    }
+
+    .footercontent {
+      margin-right: auto;
+      margin-left: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media screen and (min-width: 800px) {
+      .menu.open {
+        display: none;
+      }
+    }
+
+    @media screen and (max-width: 880px) and (min-width: 700px) {
+      #about h3 {
+        text-align: center;
+      }
+    }
+
+    @media screen and (max-width: 460px) {
+      .content h1 {
+        font-size: 3rem;
+      }
+    }
+
+    /* Back to top button styles */
+    .hidden {
+      visibility: hidden;
+    }
+
+    .back-top-wrap {
+      position: fixed;
+      bottom: 5rem;
+      right: 1rem;
+      background-color: #80F7D1;
+      padding: 1rem 1.2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: .3s ease-in-out;
+      z-index: 100;
+    }
+
+    .back-top-wrap:hover {
+      background-color: #00a2ff;
+      color: #80F7D1;
+    }
+
+    .back-top-wrap:hover .fas.fa-arrow-up {
+      color: white;
+    }
+
+    .fas.fa-arrow-up {
+      color: #00488F;
+      transition: 0.3s ease-in-out;
+    }
+
+    /* Music listener image styles */
+    .music-listener-img {
+      width: 200px;
+      height: auto;
+      border-radius: 10px;
+      object-fit: cover;
+      display: block;
+      margin: 15px auto;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+    }
+    
+    .music-listener-img:hover {
+      transform: scale(1.02);
+    }
+    
+  </style>
+</head>
+
+<body onload="myFunction()">
+  <div class="loading-wrapper">
+    <img src="https://static.vecteezy.com/system/resources/thumbnails/044/610/652/small_2x/abstract-colorful-hexagonal-logo-design-vector.jpg" id="loading" />
+  </div>
+
+  <!-- Back to top button -->
+  <div id="back-top-div" class="back-top-wrap">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+  <header>
+    <nav class="nav" id="nav">
+      <div>
+        <a class="navbar-brand" href="#!"> <img src="https://static.vecteezy.com/system/resources/thumbnails/044/610/652/small_2x/abstract-colorful-hexagonal-logo-design-vector.jpg" alt="Logo" class="logo" /></a>
+      </div>
+      <div class="nav-links" id="navLinks">
+        <ul class="links" id="navmenu">
+          <li><a href="#">HOME</a></li>
+          <li><a href="about">ABOUT</a></li>
+          <li><a href="services">SERVICES </a></li>
+          <li><a href="html/contact.html">CONTACT US </a></li>
+        </ul>
+      </div>
+      <button class="login-button"><a href="html/login.html">SignUp / Login</a></button>
+      <div class="hamburger" id="ham">
+        <i class="cancel fa-solid fa-xmark"></i>
+
+        <svg class="burger" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z">
+          </path>
+        </svg>
+      </div>
+    </nav>
+    <div class="menu" id="menu">
+      <ul class="menu-link">
+        <li><a href="#">HOME</a></li>
+        <!--<li><a href="#about">ABOUT</a></li>-->
+        <li><a href="#services">SERVICES </a></li>
+        <li><a href="html/contact.html">CONTACT US </a></li>
+      </ul>
+    </div>
+    <div class="content">
+      <h1>Welcome to STRESS-FREE</h1>
+      <div class="container">
+        <h3><span class="auto-type" style="font-size: 40px;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"></a></span></h3>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+      <script>
+        var typed = new Typed(".auto-type", {
+          strings: ["The one-step solution to get relief from your stress. Live a stress-free life!"],
+          typeSpeed: 50,
+          backspeed: 50,
+          loop: true
+        })
+      </script>
+      <a href="#services" class="rainbow-button" alt="Explore"></a>
+    </div>
+
+  </header>
+
+  <!-- About Section -->
+ <!-- <section id="about" class="about">
+    <h1 data-aos="flip-right">About Us</h1>
+    <div class="max-width">
+      <div data-aos="zoom-in" class="photo"><img src="./images/about.jpg" alt="" height="300px" width="330px"></div>
+      <div class="about-content">
+        <p data-aos="fade-left" class="text-1"> We are a team of open source contributors who have created this website
+          STRESS-FREE with the aim to provide a <span>one step solution</span> to get relief from stress. </p>
+        <p data-aos="fade-left" class="text-3">We hope that everyone can live a <span>stress free life </span>with the
+          help of<span> STRESS-FREE.</span></p>
+      </div>
+    </div>
+    <h3><span style="color: rgb(91, 134, 150);">MEET OUR MEMBERS</span></h3>
+
+    <div class="box">
+
+              <div class="card">
+          <img src="./images/shayan.jpeg" alt="shayan" loading="lazy">
+          <h5>Shayan Pal</h5>
+          <div class="pra">
+            <p>Member</p>
+            <a href="https://bio.link/shayanpal"><button>Let's Connect</button></a>
+          </div>
+        </div> 
+      <div data-aos="fade-up" ddata-aos-duration="800" class="card">
+        <img src="./images/soumyadeep.jpg" alt="soumyadeep" loading="lazy">
+        <h5>Soumyadeep Dhali</h5>
+        <div class="pra">
+          <p>Member</p>
+          <a href="https://soumyadeep.bio.link"><button>Let's Connect</button></a>
+        </div>
+      </div>
+      <div data-aos="fade-up" data-aos-duration="800" class="card">
+        <img src="./images/Syed-Hermain.jpg" alt="" loading="lazy">
+        <h5>Syed-Hermain</h5>
+        <div class="pra">
+          <p>Head of The Team</p>
+          <a href="https://bio.link/Syed-Hermain"><button>Let's Connect</button></a>
+        </div>
+      </div>
+      <div data-aos="fade-up" data-aos-duration="800" class="card">
+        <img src="./images/chaitri.jpg" alt="chaitri" loading="lazy">
+        <h5>Chaitri Saha Chowdhury</h5>
+        <div class="pra">
+          <p class="p">Member</p>
+          <a href="https://bio.link/chaitri"><button class="he">Let's Connect</button></a>
+        </div>
+
+      </div>
+
+
+      <div data-aos="fade-up" data-aos-duration="800" class="card">
+        <img src="./images/sasanka.jpg" alt="sasanka" loading="lazy">
+        <h5>Sasanka Kundu</h5>
+        <div class="pra">
+          <p>Member</p>
+          <a href="https://bio.link/sasankakundu"><button>Let's Connect</button></a>
+        </div>
+      </div>
+
+    </div>
+  </section> -->
+
+  <!-- SERVICES SECTION -->
+  <section id="services">
+    <h1>Our Services</h1>
+    <div class="container">
+      <!-- Audio Therapy -->
+      <!-- Audio Therapy -->
+<div data-aos="zoom-in" data-aos-duration="800" class="responsive audio">
+  <div class="round-image">
+      <img src="https://static.vecteezy.com/system/resources/previews/033/950/489/non_2x/young-man-listen-to-music-on-headphones-of-a-handsome-guy-listening-to-the-music-with-headphones-music-therapy-modern-man-profile-avatar-flat-illustration-vector.jpg" 
+      alt="Man enjoying music therapy" 
+      class="music-listener-img">
+  </div>
+  <div class="description">
+      <h2>Audio Therapy</h2>
+      <div class="music-therapy-illustration">
+          <img src="C:\Users\shrey\OneDrive\Desktop\stress free\css\audio.html">
+      </div>
+      <p>Listening to music & other audio files often enlightens our mood.</p>
+      <a href="audio.html">Let's Explore</a> <!-- Changed this line -->
+  </div>
+</div>
+  
+      <!-- Reading Therapy -->
+      <div data-aos="zoom-in" data-aos-duration="800" class="responsive reading">
+        <div class="round-image">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScoubxVLW_foutff7UiW9ZI1ro_HJp_sulng&s" alt="read" loading="lazy" />
+        </div>
+        <div class="description">
+          <h2>Reading Therapy</h2>
+          <p>Motivational quotes and books can help us to divert and change our mood.</p>
+          <a href="html/readingTherapy.html">Let's Explore</a>
+        </div>
+      </div>
+  
+      <!-- Yoga Therapy -->
+      <div data-aos="zoom-in" data-aos-duration="800" class="responsive yoga">
+        <div class="round-image">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaQyJNLu0JbjjuOTRkn629GOcWnH0WvNBgBg&s" alt="yoga" loading="lazy" />
+        </div>
+        <div class="description">
+          <h2>Yoga Therapy</h2>
+          <p>Yoga and exercise play a very important role in our lives.</p>
+          <a href="html/yogatherapy.html">Let's Explore</a>
+        </div>
+      </div>
+      
+      <!-- Laughing Therapy -->
+      <div data-aos="zoom-in" data-aos-duration="800" class="responsive laugh">
+        <div class="round-image">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfkX1UgmB7NZyW85zGv9cSPicAqYe6n3MrrQ&s" alt="laughing" />
+        </div>
+        <div class="description">
+          <h2>Laughing Therapy</h2>
+          <p>Laughing is the only medicine which refreshes our mind.</p>
+          <a href="html/laughTherapy.html">Let's Explore</a>
+        </div>
+      </div>
+      
+      <!-- Talking Therapy -->
+      <div data-aos="zoom-in" data-aos-duration="800" class="responsive talk">
+        <div class="round-image">
+          <img src="https://previews.123rf.com/images/pressmaster/pressmaster1503/pressmaster150300989/38167651-group-of-people-talking-to-each-other.jpg" loading="lazy" alt="talking" />
+        </div>
+        <div class="description">
+          <h2>Talking Therapy</h2>
+          <p>A quick short conversation can often bring smile to our face.</p>
+          <a href="html/talkingTherapy.html">Let's Explore</a>
+        </div>
+      </div>
+      
+      <!-- Doctor Consultation -->
+      <div data-aos="zoom-in" data-aos-duration="800" class="responsive doctor">
+        <div class="round-image">
+          <img src="https://img.freepik.com/premium-vector/online-doctor-concept-doctor-appointment-modern-healthcare-technologies-vector-illustration-flat_186332-1220.jpg" alt="doctor" loading="lazy" />
+        </div>
+        <div class="description">
+          <h2>Consult A Doctor</h2>
+          <p>If you're facing too many problems, you should consult a doctor.</p>
+          <a href="https://www.practo.com/counselling-psychology" target="_blank">Let's Explore</a>
+        </div>
+      </div>
+      
+      <!-- Child Therapy -->
+      <div class="responsive child">
+        <div class="round-image">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7ULXbqFXKRLiD2IpH88NzWLGKbDSe8sBCqg&s" alt="child" loading="lazy" />
+        </div>
+        <div class="description">
+          <h2>Child Therapy</h2>
+          <p>Children make us forget about worries with their innocence.</p>
+          <a href="./html/childTherapy.html">Let's Explore</a>
+        </div>
+      </div>
+      
+      <!-- Spiritual Therapy -->
+      <div class="responsive spiritual">
+        <div class="round-image">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPdKdaTR_INCVPlXUL1N_GA1qFasiu_v_ARQ&s" alt="spiritual" loading="lazy" />
+        </div>
+        <div class="description">
+          <h2>Spiritual Therapy</h2>
+          <p>Helps you to become more mindful in your thinking.</p>
+          <a href="./html/spirituality.html" target="_blank">Let's Explore</a>
+        </div>
+      </div>
+      
+      <!-- Special Therapy (only one instance) -->
+      <div data-aos="zoom-in" data-aos-duration="800" class="responsive special">
+        <div class="round-image">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDj_eLOilJ9FvEU0LSilvUtmrYOa_dOzn_Wg&s" alt="special" loading="lazy" />
+        </div>
+        <div class="description">
+          <h2>Special Therapy</h2>
+          <p>If you need special attention and help from us.</p>
+          <a href="./html/specialTherapy.html" target="_blank">Let's Explore</a>
+        </div>
+      </div>
+    </div>
+</section>
+
+  <!-- Testimonials Section  
+-->
+<section class="faq">
+    <div class="faq_heading">
+      <h1>Frequently Asked Questions</h1>
+    </div>
+    <div class="accordion">
+      <div class="accordion__item">
+        <button class="accordion__btn">
+          <span class="accordion__caption"><i class="far fa-lightbulb"></i>Who are we and what do we do?</span>
+          <span class="accordion__icon"><i class="fas fa-plus"></i></span>
+        </button>
+        <div class="accordion__content">
+          <p>We are a team of open source contributors who have created this website "STRESS-FREE" with the aim
+            to provide a one step solution to get relief from stress. We hope that everyone can live a
+            stress free life with the help of STRESS-FREE.</p>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <button class="accordion__btn">
+
+          <span class="accordion__caption"><i class="far fa-lightbulb"></i>What are the services we offer?</span>
+          <span class="accordion__icon"><i class="fa fa-plus"></i></span>
+        </button>
+
+        <div class="accordion__content">
+          <p>We offer multiple services like:
+            <br>
+            1. Audio Therapy
+            <br>
+            2. Reading Therapy
+            <br>
+            3. Yoga Therapy
+            <br>
+            4. Laughing Therapy
+            <br>
+            5. Talking Therapy
+            <br>
+            6. Doctor Consultation
+            <br>
+            7. Child Therapy
+            <br>
+            8. Spiritual Therapy
+          </p>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <button class="accordion__btn">
+
+          <span class="accordion__caption"><i class="far fa-lightbulb"></i>How can you Contact Us?</span>
+          <span class="accordion__icon"><i class="fa fa-plus"></i></span>
+        </button>
+
+        <div class="accordion__content">
+          <p> You can contact us via <a class="email" href="mailto:STRESS-FREE665@gmail.com">STRESS-FREE665@gmail.com</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <button class="accordion__btn">
+
+          <span class="accordion__caption"><i class="far fa-lightbulb"></i>What is Reading Therapy?</span>
+          <span class="accordion__icon"><i class="fa fa-plus"></i></span>
+        </button>
+
+        <div class="accordion__content">
+          <p>Reading therapy is a creative art therapy that uses literature to support good
+            mental health and is a versatile and cost-effective treatment. It includes storytelling or the reading of
+            specific texts.</p>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <button class="accordion__btn">
+
+          <span class="accordion__caption"><i class="far fa-lightbulb"></i>What is Audio Therapy?</span>
+          <span class="accordion__icon"><i class="fa fa-plus"></i></span>
+        </button>
+
+        <div class="accordion__content">
+          <p>Audio Therapy includes auditory and vibratory inputs which are used to influence a person's psychological
+            state, includes sound healing, vibroacoustic sound therapy, music, and music therapy.</p>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <button class="accordion__btn">
+
+          <span class="accordion__caption"><i class="far fa-lightbulb"></i>What is Yoga Therapy?</span>
+          <span class="accordion__icon"><i class="fa fa-plus"></i></span>
+        </button>
+
+        <div class="accordion__content">
+          <p>Yoga therapy uses yoga postures, breathing exercises, meditation, and guided imagery to improve mental and
+            physical health.</p>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <button class="accordion__btn">
+
+          <span class="accordion__caption"><i class="far fa-lightbulb"></i>What is Laughing Therapy?</span>
+          <span class="accordion__icon"><i class="fa fa-plus"></i></span>
+        </button>
+
+        <div class="accordion__content">
+          <p>Laughing therapy uses humor to help relieve pain and stress and improve a person's sense of well-being
+            through jokes and playful exercises that encourage hearty, continuous, and lively laughter.</p>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <button class="accordion__btn">
+
+          <span class="accordion__caption"><i class="far fa-lightbulb"></i>What is Talking Therapy?</span>
+          <span class="accordion__icon"><i class="fa fa-plus"></i></span>
+        </button>
+
+        <div class="accordion__content">
+          <p>Talking therapy involves talking to someone to help deal with negative feelings or other mental health
+            problems. It helps shy individuals open up their problems to others so that they can help them overcome
+            them.</p>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <button class="accordion__btn">
+
+          <span class="accordion__caption"><i class="far fa-lightbulb"></i>What is Child Therapy?</span>
+          <span class="accordion__icon"><i class="fa fa-plus"></i></span>
+        </button>
+
+        <div class="accordion__content">
+          <p>Child therapy includes the watching of cute videos and images of children, as children make us
+            forget about our problems with their innocence and cuteness.</p>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <button class="accordion__btn">
+
+          <span class="accordion__caption"><i class="far fa-lightbulb"></i>What is Spritual Therapy?</span>
+          <span class="accordion__icon"><i class="fa fa-plus"></i></span>
+        </button>
+
+        <div class="accordion__content">
+          <p>Spiritual therapy is a form of counseling that attempts to treat a person's soul as well as mind and body
+            by accessing individual belief systems and using
+            that faith in a higher power to explore areas of conflict in life.</p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- footer start -->
+  <footer>
+    <div class="footer-container">
+      <!--logo and info column-->
+      <div class="col">
+        <!--logo insert-->
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/044/610/652/small_2x/abstract-colorful-hexagonal-logo-design-vector.jpg" alt="logo" class="footlogo" />
+        <div class="footercontent">
+          <h2 class="footerheading">STRESS-FREE</h2>
+          <p class="footerpara">go stress free</p>
+        </div>
+      </div>
+
+      <!--ADDRESS COLUMN-->
+
+      <div class="footer-side-col">
+        <div class="col">
+          <h3>
+            ADDRESS
+            <div class="underline"><span></span></div>
+          </h3>
+          <p>New Delhi, India</p>
+          <p class="email-id"><a href="mailto:STRESS-FREE665@gmail.com">STRESS-FREE665@gmail.com</a></p>
+        </div>
+        <!--HOME COLUMN-->
+        <div class="col">
+          <h3>HOME</h3>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li>
+              <a href="https://github.com/Syed-Hermain/STRESS-FREE/blob/main/CODE_OF_CONDUCT.md">Code Of Conduct</a>
+            </li>
+            <li>
+              <a href="https://github.com/Syed-Hermain/STRESS-FREE">Contribute</a>
+            </li>
+            
+          </ul>
+        </div>
+        <!--OUR SERVICES COLUMN-->
+        <div class="col">
+          <h3>
+            SERVICES
+            <div class="underline"><span></span></div>
+          </h3>
+          <ul>
+            <li>
+              <a href="https://STRESS-FREE-stress-free.netlify.app/html/audiotherapy">Audio Therapy</a>
+            </li>
+            <li>
+              <a href="https://STRESS-FREE-stress-free.netlify.app/html/readingtherapy">Reading Therapy</a>
+            </li>
+            <li>
+              <a href="https://STRESS-FREE-stress-free.netlify.app/html/yogatherapy.html">Yoga Therapy</a>
+            </li>
+            <li>
+              <a href="https://STRESS-FREE-stress-free.netlify.app/html/laughTherapy.html">Laughing Therapy</a>
+            </li>
+            <li>
+              <a href="https://STRESS-FREE-stress-free.netlify.app/html/talkingtherapy">Talking Therapy</a>
+            </li>
+            <li>
+              <a href="https://www.practo.com/counselling-psychology">Consult a Doctor</a>
+            </li>
+            <li>
+              <a href="https://STRESS-FREE-stress-free.netlify.app/html/childTherapy">Child Therapy</a>
+            </li>
+            <li>
+              <a href="https://STRESS-FREE-stress-free.netlify.app/html/spirituality">Spiritual Therapy</a>
+            </li>
+            <li>
+              <a href="https://STRESS-FREE-stress-free.netlify.app/html/specialTherapy">Special Therapy</a>
+            </li>
+          </ul>
+        </div>
+        <!--CONTACTS COLUMN-->
+        <div class="col">
+          <h3>
+            CONTACTS
+            <div class="underline"><span></span></div>
+          </h3>
+          <div class="social-menu">
+            <ul>
+              <a href="https://twitter.com/STRESS-FREE665" target="_blank">
+                <li id="social-twitter"><i class="fab fa-2x fa-twitter"></i></li>
+              </a>
+              <a href="https://github.com/Syed-Hermain/STRESS-FREE" target="_blank">
+                <li id="social-github"><i class="fab fa-2x fa-github"></i></li>
+              </a>
+              <a href="https://www.linkedin.com/in/STRESS-FREE-web-820705238" target="_blank">
+                <li id="social-linkedin"><i class="fab fa-2x fa-linkedin-in"></i></li>
+              </a>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+
+    let preloader = document.querySelector(".loading-wrapper");
+    function myFunction() {
+      preloader.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+    let navbar = document.querySelector("#nav");
+    let navmenu = document.querySelector("#navmenu");
+
+    window.onscroll = function () {
+      if (window.pageYOffset >= navmenu.offsetTop) {
+        navbar.classList.add("sticky");
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    };
+
+    window.onscroll = () => {
+      if (window.scrollY > 100) {
+        navbar.classList.add('nav-active');
+      } else {
+        navbar.classList.remove('nav-active');
+      }
+    };
+  </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./serviceworker.js')
+          .then((reg) => console.log('Success', reg.scope))
+          .catch((err) => console.log('Error', err))
+      })
+    }
+  </script>
+  <script src="js/index.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+
+</html>

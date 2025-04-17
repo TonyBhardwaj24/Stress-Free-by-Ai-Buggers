@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Audio Therapy - Stress Free</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: url('https://t4.ftcdn.net/jpg/08/93/06/41/360_F_893064172_tAkom8rqGrdMV3dHrUbpdyiLAoIgOEBM.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+
+    nav {
+      width: 100%;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(6px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    .logo img {
+      height: 40px;
+      border-radius: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #84fab0;
+    }
+
+    .container {
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(8px);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+      max-width: 800px;
+      margin: 8rem auto 0;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .music-section {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 100px 20px;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .music-section h2 {
+      color: white;
+      font-size: 3rem;
+      border-bottom: 3px solid white;
+      display: inline-block;
+      margin-bottom: 60px;
+    }
+
+    .music-cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background-color: #1e1e1e;
+      border-radius: 20px;
+      padding: 1rem;
+      width: 300px;
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card h3 {
+      color: #84fab0;
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+    }
+
+    .spotify {
+      width: 100%;
+      height: 380px;
+      border: none;
+      border-radius: 12px;
+    }
+
+    /* Updated Podcast Card Styles */
+    .podcast-card {
+      background-color: #1e1e1e;
+      border-radius: 15px;
+      padding: 1.5rem;
+      width: 320px;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
+    }
+
+    .podcast-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    .podcast-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .podcast-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .episode-number {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.9rem;
+    }
+
+    .episode-title {
+      font-size: 1rem;
+      color: #84fab0;
+      margin-bottom: 0.5rem;
+    }
+
+    .episode-details {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .podcast-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1rem;
+    }
+
+    .save-btn {
+      background-color: transparent;
+      color: #1DB954;
+      border: 1px solid #1DB954;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .save-btn:hover {
+      background-color: rgba(29, 185, 84, 0.1);
+    }
+
+    .listener-count {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.9rem;
+    }
+
+    /* Updated Audiobook Section Styles */
+    .audiobook-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+      padding: 0 20px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .audiobook-card {
+      background-color: rgba(30, 30, 30, 0.8);
+      border-radius: 10px;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: all 0.3s ease;
+      position: relative;
+      height: 100%;
+    }
+
+    .audiobook-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    .book-cover {
+      width: 150px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .audiobook-card h3 {
+      color: #fff;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    .audiobook-card p {
+      color: rgba(255, 255, 255, 0.7);
+      margin: 0.2rem 0;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+
+    .author {
+      color: #ffcc00;
+      font-style: italic;
+      font-size: 0.8rem;
+    }
+
+    .play-btn {
+      background-color: #1DB954;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      margin-top: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: all 0.3s ease;
+      width: 80%;
+    }
+
+    .play-btn:hover {
+      background-color: #1ed760;
+      transform: scale(1.05);
+    }
+
+    .tag {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 0.2rem 0.5rem;
+      border-radius: 15px;
+      font-size: 0.7rem;
+      font-weight: bold;
+    }
+
+    .price {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background-color: rgba(0,0,0,0.7);
+      color: white;
+      padding: 0.2rem 0.5rem;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    @media screen and (max-width: 1000px) {
+      .music-cards {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .music-section {
+        padding: 80px 20px;
+      }
+      
+      .music-section h2 {
+        font-size: 2.5rem;
+      }
+      
+      .audiobook-cards {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 15px;
+      }
+      
+      .book-cover {
+        width: 120px;
+        height: 160px;
+      }
+    }
+    
+    @media screen and (max-width: 600px) {
+      .audiobook-cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">
+      <img src="https://static.vecteezy.com/system/resources/thumbnails/044/610/652/small_2x/abstract-colorful-hexagonal-logo-design-vector.jpg" alt="Logo" />
+    </div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#music">Music</a>
+      <a href="#podcasts">Podcasts</a>
+      <a href="#audiobooks">Audiobooks</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Audio Therapy Experience</h1>
+    <p style="font-size: 1.2rem;">Take a deep breath, relax, and enjoy the soothing background.</p>
+  </div>
+
+  <div class="music-section" id="music">
+    <h2>Music</h2>
+    <div class="music-cards">
+      <div class="card">
+        <h3>Stress Relief Sounds</h3>
+        <iframe class="spotify" 
+          src="https://open.spotify.com/embed/playlist/37i9dQZF1DWWEJlAGA9gs0?utm_source=generator" 
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+          loading="lazy">
+        </iframe>
+      </div>
+      <div class="card">
+        <h3>Peaceful Guitar</h3>
+        <iframe class="spotify" 
+          src="https://open.spotify.com/embed/playlist/37i9dQZF1DX4sWSpwq3LiO?utm_source=generator" 
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+          loading="lazy">
+        </iframe>
+      </div>
+      <div class="card">
+        <h3>Calm Nature Sounds</h3>
+        <iframe class="spotify" 
+          src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0jgyAiPl8Af?utm_source=generator" 
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="music-section" id="podcasts">
+    <h2>Podcasts</h2>
+    <div class="music-cards">
+      <div class="card">
+        <h3>The Mindset Mentor</h3>
+        <iframe class="spotify"
+          src="https://open.spotify.com/embed/show/4XPl3uEEL9hvqMkoZrzbx5?utm_source=generator"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy">
+        </iframe>
+      </div>
+      <div class="card">
+        <h3>On Purpose with Jay Shetty</h3>
+        <iframe class="spotify"
+          src="https://open.spotify.com/embed/show/5EqqB52m2bsr4k1Ii7sStc?utm_source=generator"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy">
+        </iframe>
+      </div>
+
+      <div class="card">
+        <h3>Calm It Down</h3>
+        <iframe class="spotify"
+          src="https://open.spotify.com/embed/show/4rOoJ6Egrf8K2IrywzwOMk?utm_source=generator"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="music-section" id="audiobooks">
+    <h2>Audiobooks</h2>
+    <div class="audiobook-cards">
+      <div class="audiobook-card">
+        <span class="tag">BESTSELLER</span>
+        <img src="https://m.media-amazon.com/images/I/71N4oeWwYlL._AC_UF1000,1000_QL80_.jpg" alt="The Psychology of Money" class="book-cover">
+        <h3>The Psychology of Money</h3>
+        <p class="author">Morgan Housel</p>
+        <span class="price">$14.99</span>
+        <button class="play-btn">Play Now</button>
+      </div>
+      
+      <div class="audiobook-card">
+        <img src="https://m.media-amazon.com/images/I/81s6DUyQCZL._AC_UF1000,1000_QL80_.jpg" alt="Ikigai" class="book-cover">
+        <h3>IKIGAI</h3>
+        <p>The Japanese Secret to a Long and Happy Life</p>
+        <span class="price">$12.99</span>
+        <button class="play-btn">Play Now</button>
+      </div>
+      
+      <div class="audiobook-card">
+        <span class="tag">BESTSELLER</span>
+        <img src="https://m.media-amazon.com/images/I/71tbalAHYCL._AC_UF1000,1000_QL80_.jpg" alt="The Subtle Art" class="book-cover">
+        <h3>THE SUBTLE ART</h3>
+        <p class="author">MARK MANSON</p>
+        <span class="price">$15.99</span>
+        <button class="play-btn">Play Now</button>
+      </div>
+      
+      <div class="audiobook-card">
+        <img src="https://m.media-amazon.com/images/I/91bYsX41DVL._AC_UF1000,1000_QL80_.jpg" alt="Atomic Habits" class="book-cover">
+        <h3>Atomic Habits</h3>
+        <p class="author">James Clear</p>
+        <span class="price">$16.99</span>
+        <button class="play-btn">Play Now</button>
+      </div>
+      
+      <div class="audiobook-card">
+        <img src="https://m.media-amazon.com/images/I/71aFt4+OTOL._AC_UF1000,1000_QL80_.jpg" alt="Think Like a Monk" class="book-cover">
+        <h3>THINK LIKE A MONK</h3>
+        <p class="author">Jay Shetty</p>
+        <span class="price">$17.99</span>
+        <button class="play-btn">Play Now</button>
+      </div>
+      
+      <div class="audiobook-card">
+        <img src="https://m.media-amazon.com/images/I/81bsw6fnUiL._AC_UF1000,1000_QL80_.jpg" alt="Rich Dad Poor Dad" class="book-cover">
+        <h3>RICH DAD POOR DAD</h3>
+        <p class="author">Robert Kiyosaki</p>
+        <span class="price">$12.99</span>
+        <button class="play-btn">Play Now</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
